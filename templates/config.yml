@@ -1,0 +1,31 @@
+# Copy to <target-repo>/.wavebuild/config.yml and fill in.
+spec: .wavebuild/phase-spec.md
+conventions: "see CLAUDE.md / AGENTS.md"
+mode: autobuild                    # autobuild (default, no permission stops) | review
+
+# Large, weakly-bounded files. Any two phases that both touch one of these
+# are forced into separate waves.
+hot_files:
+  - path/to/big/monolithic/file
+
+# Minimum every Builder reads first. Keep short.
+context:
+  - CLAUDE.md
+
+# Full suite — every command must exit 0 to pass a wave's test gate. From repo root.
+# The Coordinator runs independent commands (backend vs frontend) concurrently.
+test:
+  - "your backend test command"
+  - "your frontend test command"
+
+# Optional fast subset a Builder runs while iterating (full suite is the gate's job).
+# {phase_area} is substituted with a keyword from the phase if you use it.
+test_quick: "your quick test command -k {phase_area}"
+
+boot: "your dev-server command"    # for the Verifier; optional
+heavy_review: "/code-review ultra" # human-run only; the protocol never invokes it
+
+# Optional per-role models (platform permitting). Omit to use the default everywhere.
+models:
+  strong: default                 # Coordinator, Builders, full-gate Reviewer
+  cheap: default                  # Verifier, light-gate Reviewer
