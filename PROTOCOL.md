@@ -1,9 +1,9 @@
 # Wave Build Protocol v0.3
 
-<!-- v0.3: first real run (wells-frogo diversify-search, examples/). Branch
-     names deconflicted (wave-N-int); Phase 0 gate depth by whether it lands
-     behaviour; resume-a-dead-builder rule; deferrals must be tracked;
-     archive a prior run; Verifier seeds its own data. -->
+<!-- v0.3, from the first real end-to-end run: branch names deconflicted
+     (wave-N-int); Phase 0 gate depth depends on whether it lands behaviour;
+     resume-a-dead-builder rule; deferrals must be tracked; archive a prior
+     run before a new one; Verifier seeds its own test data. -->
 
 A platform-neutral method for taking a feature from a messy brain-dump to
 merged code: interview the human into a spec, partition the spec into waves

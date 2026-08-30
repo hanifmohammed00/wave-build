@@ -100,7 +100,6 @@ is real setup cost here, and on something small it will outweigh the work.
 | `ADAPTERS.md` | How to run the roles on each platform |
 | `SKILL.md` | Claude Code skill entry (`/wave-build`) |
 | `templates/` | Starting `config.yml`, `brief.md`, `phase-spec.md` |
-| `examples/` | `wells-frogo-diversify-search.md` — the first real run, end to end |
 
 ## Install
 
@@ -130,6 +129,5 @@ Then `/wave-build` in any repo. For other agents, point the repo's
 ## Status
 
 v0.3. Short history: drafted while planning a feature, then run start to
-finish on a real one, which broke it in seven places, all since fixed.
-`examples/wells-frogo-diversify-search.md` is that run — what it built, what
-each gate caught, and every spot the protocol needed a patch.
+finish on a real one. That run broke it in seven places, all since fixed and
+listed in the comment at the top of `PROTOCOL.md`.
