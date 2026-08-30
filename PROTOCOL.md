@@ -16,8 +16,8 @@ review/verify — not from throwing more builders at a chain. See §Speed.
 
 Runnable by one agent working alone, an orchestrator that spawns subagents,
 or a human coordinating several agent sessions — on Claude Code, Codex,
-Cursor, Aider, or by hand. All state lives in `.wavebuild/`; any agent on
-any platform resumes by reading it.
+Gemini, Cursor, Aider, or by hand. All state lives in `.wavebuild/`; any
+agent on any platform resumes by reading it.
 
 Vendor this file, `ROLES.md`, and `ADAPTERS.md` unchanged into any repo.
 The project supplies `config.yml` and `brief.md`.
