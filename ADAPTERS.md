@@ -56,6 +56,21 @@ parallel Builders. Everything else is plain git + shell + files.
   merged branch's diff.
 - No skill needed — point `AGENTS.md` at `.wavebuild/PROTOCOL.md`.
 
+## Gemini CLI (`gemini`)
+
+- **Coordinator**: the interactive `gemini` session. Add a `GEMINI.md` line
+  pointing at `.wavebuild/PROTOCOL.md` so the method loads as context; tell
+  it to act as the Coordinator role from `ROLES.md`.
+- **Builder**: one phase at a time in the session, or a non-interactive
+  `gemini -p "$(fill ROLES.md §Builder)"` per phase, each on its own branch.
+- **Reviewer / Verifier**: a fresh `gemini -p "$(fill ROLES.md §Reviewer)"`
+  (or a new interactive session) against `git diff
+  <working-branch>...wave-N-int` — new process, no shared context, so
+  isolation holds.
+- **Parallel**: not native. Run a wave's phases sequentially, or open one
+  `gemini` session per phase by hand and merge the branches (see Manual
+  multi-agent).
+
 ## Cursor / Aider / other single-session tools
 
 - **Coordinator + Builder**: the session, one phase at a time.
@@ -74,9 +89,10 @@ parallel Builders. Everything else is plain git + shell + files.
 
 ---
 
-## AGENTS.md / CLAUDE.md pointer
+## AGENTS.md / CLAUDE.md / GEMINI.md pointer
 
-Add once, so any tool entering the repo finds the method:
+Add once to whichever file your tool reads, so any agent entering the repo
+finds the method:
 
 ```
 Multi-phase features follow .wavebuild/PROTOCOL.md — interview to a
